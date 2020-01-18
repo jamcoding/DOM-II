@@ -34,15 +34,29 @@ body.addEventListener('onload', (event) => {
 
 // Change background color on key down and key up
 body.addEventListener('keydown', (event) => {
-    event.target.style.backgroundColor = '#C0C0C0';
-})
-
-body.addEventListener('keyup', (event) => {
     event.target.style.backgroundColor = '#FFEBCD';
 })
 
-// Change paragraph color when selecting
-const paragraph = document.querySelectorAll('p');
-paragraph.addEventListener('select', (event) => {
-    event.target.style.color = 'green';
+body.addEventListener('keyup', (event) => {
+    event.target.style.backgroundColor = '';
+})
+
+
+// Propagation
+body.addEventListener('click', (event) => {
+    event.target.style.backgroundColor = "lightgray";
+    console.log('end');
+})
+
+const sectionPicks = document.querySelector('.content-pick');
+
+
+// Change background color when mouse is down and up
+const footer = document.querySelector('footer');
+footer.addEventListener('mousedown', (event) => {
+    event.target.style.backgroundColor = '#C0C0C0';
+})
+
+footer.addEventListener('mouseup', (event) => {
+    event.target.style.backgroundColor = '';
 })
