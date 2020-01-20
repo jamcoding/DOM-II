@@ -43,13 +43,29 @@ body.addEventListener('keyup', (event) => {
 
 
 // Propagation
-body.addEventListener('click', (event) => {
-    event.target.style.backgroundColor = "lightgray";
+body.addEventListener('click', () => {
+    body.style.backgroundColor = 'lightgray';
     console.log('end');
 })
 
 const sectionPicks = document.querySelector('.content-pick');
+sectionPicks.addEventListener('click', (event) => {
+    sectionPicks.style.backgroundColor = 'purple';
+    event.stopPropagation();
+    console.log('second middle');
+})
 
+const destination = document.querySelector('.destination');
+destination.addEventListener('click', () => {
+    destination.style.backgroundColor = 'lightblue';
+    console.log('first middle');
+})
+
+const button = document.querySelector('.btn');
+button.addEventListener('click', () => {
+    button.style.backgroundColor = 'green';
+    console.log('start');
+})
 
 // Change background color when mouse is down and up
 const footer = document.querySelector('footer');
